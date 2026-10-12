@@ -32,7 +32,7 @@
     <style>
         html {
             background-color: oklch(1 0 0);
-            zoom: 0.75;
+            zoom: 0.95;
         }
     </style>
 

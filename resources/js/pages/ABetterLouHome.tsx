@@ -80,7 +80,7 @@ export default function ABetterLouHome() {
             <Nav onMenuOpen={openMobile} onGetQuote={openModal} />
 
             {/* Mobile drawer */}
-            <MobileMenu open={mobileOpen} onClose={closeMobile} />
+            <MobileMenu open={mobileOpen} onClose={closeMobile} onGetQuote={openModal} />
 
             {/* Quote modal */}
             <ReserveModal open={modalOpen} onClose={closeModal} />
@@ -105,7 +105,7 @@ export default function ABetterLouHome() {
                 href="https://wa.me/447865435946"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat on WhatsApp"
+                aria-label="Chat on WhatsApp" className="wa_float"
                 style={{
                     position: 'fixed',
                     bottom: '1.5rem',

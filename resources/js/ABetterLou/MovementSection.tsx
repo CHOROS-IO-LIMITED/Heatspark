@@ -1,4 +1,5 @@
 import PlaceholderGraphic from '@/ABetterLou/PlaceholderGraphic';
+import { PHOTOS } from '@/ABetterLou/photos';
 
 const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
 const ARROW = `${CDN}/6951317f9e7c4fc62f2c0c81_arrow.svg`;
@@ -66,8 +67,7 @@ export default function MovementSection({ onGetQuote }: MovementSectionProps) {
             </div>
 
             <div className="right">
-                {/* TODO: replace with real engineer photo */}
-                <PlaceholderGraphic type="engineer" style={{ minHeight: '480px' }} />
+                <PlaceholderGraphic type="engineer" style={{ minHeight: '480px' }} photo={PHOTOS.engineer} sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
         </section>
     );

@@ -1,6 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const CLOSE_ICON = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574/695ae0aafb1418cf95b08544_close_icon.svg';
+// Inline so it inherits the beige text colour (the old CDN icon was dark brown on the dark modal).
+function CloseIcon() {
+    return (
+        <svg width="24" height="24" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="cross_icon">
+            <path d="M14.5 4.8 4.8 14.5M4.8 4.8l9.7 9.7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+    );
+}
 
 const SERVICES_LIST = [
     'Plumbing — General',
@@ -28,6 +35,7 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
     const [service, setService] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
+    const [sending, setSending] = useState(false);
     const firstInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -45,10 +53,21 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
         return () => window.removeEventListener('keydown', onKey);
     }, [open, onClose]);
 
+    // Stop the page scrolling behind the modal.
+    useEffect(() => {
+        if (!open) return;
+        const html = document.documentElement;
+        const prev = html.style.overflow;
+        html.style.overflow = 'hidden';
+        return () => { html.style.overflow = prev; };
+    }, [open]);
+
     const handleSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
+        if (sending) return;
         if (!firstName || !lastName || !email) { setError(true); return; }
         setError(false);
+        setSending(true);
 
         try {
             const res = await fetch('/contact/submit', {
@@ -66,8 +85,10 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
             }
         } catch {
             setError(true);
+        } finally {
+            setSending(false);
         }
-    }, [firstName, lastName, phone, email, service]);
+    }, [sending, firstName, lastName, phone, email, service]);
 
     return (
         <div
@@ -85,7 +106,7 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
                                 <div className="heading_modal">
                                     <div className="modal_heading">Get a Free Quote</div>
                                     <button type="button" className="close_modal" onClick={onClose} aria-label="Close">
-                                        <img loading="lazy" src={CLOSE_ICON} alt="" className="image cross_icon" />
+                                        <CloseIcon />
                                     </button>
                                 </div>
 
@@ -168,7 +189,7 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
                                         </select>
                                     </div>
 
-                                    <input type="submit" className="form_submit" value="Request Quote" />
+                                    <input type="submit" className="form_submit" value={sending ? 'Sending…' : 'Request Quote'} disabled={sending} />
                                 </div>
 
                                 {error && (
@@ -188,7 +209,7 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
                                 <div className="heading_modal">
                                     <div className="modal_heading">Quote Request Received!</div>
                                     <button type="button" className="close_modal" onClick={onClose} aria-label="Close">
-                                        <img loading="lazy" src={CLOSE_ICON} alt="" className="image cross_icon" />
+                                        <CloseIcon />
                                     </button>
                                 </div>
                                 <div className="w-form-done visible" style={{ marginTop: '1.5rem' }}>

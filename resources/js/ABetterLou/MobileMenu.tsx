@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
 const PLUS_ICON = `${CDN}/695eb6d83d09b4baa1cb25b0_plus_included.png`;
@@ -6,13 +6,26 @@ const PLUS_ICON = `${CDN}/695eb6d83d09b4baa1cb25b0_plus_included.png`;
 type MobileMenuProps = {
     open: boolean;
     onClose: () => void;
+    /** Opens the quote modal; falls back to the contact page when not provided. */
+    onGetQuote?: () => void;
 };
 
-export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+export default function MobileMenu({ open, onClose, onGetQuote }: MobileMenuProps) {
     const [servicesOpen, setServicesOpen] = useState(false);
 
+    // Stop the page scrolling behind the open drawer; close it on Escape.
+    useEffect(() => {
+        if (!open) return;
+        const html = document.documentElement;
+        const prev = html.style.overflow;
+        html.style.overflow = 'hidden';
+        const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+        window.addEventListener('keydown', onKey);
+        return () => { html.style.overflow = prev; window.removeEventListener('keydown', onKey); };
+    }, [open, onClose]);
+
     return (
-        <div className={`mobile_menu${open ? ' is-open' : ''}`} aria-hidden={!open}>
+        <div className={`mobile_menu${open ? ' is-open' : ''}`} aria-hidden={!open} inert={!open}>
             {/* Close button top-right */}
             <button
                 type="button"
@@ -89,7 +102,14 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                     <a href="tel:07865435946" className="button" onClick={onClose}>
                         <div className="button_main mobile_button">Call 07865 435 946</div>
                     </a>
-                    <a href="/contact" className="button" onClick={onClose}>
+                    <a
+                        href="/contact"
+                        className="button"
+                        onClick={e => {
+                            onClose();
+                            if (onGetQuote) { e.preventDefault(); onGetQuote(); }
+                        }}
+                    >
                         <div className="button_main mobile_button">Get a Free Quote</div>
                     </a>
                 </div>

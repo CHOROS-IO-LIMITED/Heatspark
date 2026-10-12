@@ -19,9 +19,9 @@
   --abl-transition: 0.3s ease;
 }
 
-/* ─── Override blade-level zoom and bg so ABL page renders at 100% ─── */
+/* ─── Site-wide zoom (95%) + bg; keep in sync with the inline style in app.blade.php ─── */
 html:has(.abl-root) {
-  zoom: 1 !important;
+  zoom: 0.95 !important;
   background-color: var(--abl-bg) !important;
 }
 
@@ -2018,3 +2018,62 @@ html:has(.abl-root) {
   .splide__slide { width: 240px; }
   .grid_links { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 }
+
+/* ════════════════════════════════════════
+   INNER PAGES (About / Services / Portfolio / Contact)
+════════════════════════════════════════ */
+/* Safety net: nothing may widen the page (keeps the off-canvas menu hidden). clip, unlike hidden, keeps position:sticky working. */
+.abl-root { overflow-x: clip; }
+
+.page_split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.page_split.is-top { align-items: start; }
+.page_split.is-contact { grid-template-columns: 1fr 1.6fr; }
+.page_split.is-reversed > :first-child { order: 2; }
+
+.page_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 1.5rem;
+}
+
+.form_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .page_split,
+  .page_split.is-contact { grid-template-columns: 1fr; gap: 2.5rem; }
+  .page_split.is-reversed > :first-child { order: 0; }
+}
+
+@media (max-width: 480px) {
+  .form_row { grid-template-columns: 1fr; }
+}
+
+/* Carousel arrows: show when an end is reached */
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+.carousel-btn:disabled:hover { background: transparent; border-color: rgba(255, 255, 255, 0.25); }
+
+/* Native <select> popups render on a light OS surface — give options readable colours */
+.abl-root select option { background: var(--abl-bg); color: var(--abl-beige); }
+
+/* Floating WhatsApp button sits below the mobile menu (200) and quote modal (300) */
+.wa_float { z-index: 150 !important; }
+.close_modal { color: var(--abl-beige); display: flex; }
+
+/* Arrow icon is a near-black SVG: show it white on the black circle, dark on the light variant */
+.circle_general img { filter: invert(1); }
+.circle_general.circle_light { background: var(--abl-beige); }
+.circle_general.circle_light img { filter: none; }
+
+/* Plumbing plan card: lift it off the page background, and give its outline buttons a visible edge */
+.plan_brown { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); }
+.plan_btn_light { border: 1px solid rgba(255, 255, 255, 0.4) !important; }
+.plan_btn_light:hover { background: rgba(255, 255, 255, 0.08) !important; }

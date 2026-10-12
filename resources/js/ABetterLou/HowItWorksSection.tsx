@@ -72,7 +72,7 @@ export default function HowItWorksSection({ onGetQuote }: HowItWorksSectionProps
                                     style={{ background: '#1a1a1a', color: '#ffffff', cursor: 'pointer', border: 'none' }}
                                 >
                                     <div className="buble_button">Get a Free Quote</div>
-                                    <div className="circle_general" style={{ background: '#ffffff' }}>
+                                    <div className="circle_general circle_light">
                                         <div className="arrow_general">
                                             <img src={ARROW} loading="lazy" alt="" className="image" />
                                         </div>

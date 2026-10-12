@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import PlaceholderGraphic from '@/ABetterLou/PlaceholderGraphic';
+import { PHOTOS } from '@/ABetterLou/photos';
 
 const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
 const ARROW = `${CDN}/6951317f9e7c4fc62f2c0c81_arrow.svg`;
@@ -119,7 +120,7 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
                                     </div>
                                 </div>
                                 <div className="overlay_membership" />
-                                <PlaceholderGraphic type="plumbing" className="image_back" />
+                                <PlaceholderGraphic type="plumbing" className="image_back" photo={PHOTOS.plumbingPipes} sizes="(max-width: 480px) 100vw, 400px" />
                             </a>
                             <a href="/services" className="membership_link" onClick={closeSubmenu}>
                                 <div className="above_info">
@@ -136,7 +137,7 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
                                     </div>
                                 </div>
                                 <div className="overlay_membership" />
-                                <PlaceholderGraphic type="gas" className="image_back" />
+                                <PlaceholderGraphic type="gas" className="image_back" photo={PHOTOS.panelWork} sizes="(max-width: 480px) 100vw, 400px" />
                             </a>
                         </div>
                     </div>

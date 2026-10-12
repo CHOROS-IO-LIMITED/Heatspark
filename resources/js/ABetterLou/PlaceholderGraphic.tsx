@@ -4,10 +4,16 @@ export type GraphicType =
     | 'blog-gas' | 'blog-landlord' | 'blog-electrical'
     | 'cta' | 'fullscreen';
 
+import { type Photo, pexelsSrcSet, pexelsUrl } from '@/ABetterLou/photos';
+
 interface Props {
     type: GraphicType;
     style?: React.CSSProperties;
     className?: string;
+    /** When set, a real photo covers the SVG (the SVG stays as a loading/fallback backdrop). */
+    photo?: Photo;
+    /** Responsive `sizes` hint for the photo's srcset. */
+    sizes?: string;
 }
 
 /* ── clean stroke icons, centered on 400×300 canvas ── */
@@ -123,7 +129,7 @@ function getLabel(type: GraphicType) {
     return labels[type];
 }
 
-export default function PlaceholderGraphic({ type, style, className }: Props) {
+export default function PlaceholderGraphic({ type, style, className, photo, sizes = '(max-width: 768px) 100vw, 50vw' }: Props) {
     return (
         <div
             className={className}
@@ -162,6 +168,19 @@ export default function PlaceholderGraphic({ type, style, className }: Props) {
                     {getLabel(type).toUpperCase()}
                 </text>
             </svg>
+            {photo && (
+                <img
+                    src={pexelsUrl(photo.id, 1280)}
+                    srcSet={pexelsSrcSet(photo.id)}
+                    sizes={sizes}
+                    alt={photo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="image"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={e => { e.currentTarget.style.display = 'none'; }}
+                />
+            )}
         </div>
     );
 }
