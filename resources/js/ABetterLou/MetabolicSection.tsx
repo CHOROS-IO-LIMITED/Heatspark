@@ -1,6 +1,7 @@
 const DATA_ITEMS = [
     {
         number: 1,
+        title: 'Plumbing',
         desc: 'Full domestic and commercial plumbing — carried out by qualified engineers.',
         bullets: [
             'Emergency repairs and leak detection',
@@ -11,6 +12,7 @@ const DATA_ITEMS = [
     },
     {
         number: 2,
+        title: 'Gas & Heating',
         desc: 'Gas Safe registered engineers for all gas appliance and boiler work.',
         bullets: [
             'New boiler installations and replacements',
@@ -21,6 +23,7 @@ const DATA_ITEMS = [
     },
     {
         number: 3,
+        title: 'Electrical',
         desc: 'NICEIC approved electricians delivering safe, certified electrical work.',
         bullets: [
             'Full and partial rewires',
@@ -37,7 +40,7 @@ type MetabolicSectionProps = {
 
 export default function MetabolicSection({ onGetQuote }: MetabolicSectionProps) {
     return (
-        <section className="data_section">
+        <section className="data_section section_alt">
             <div className="wrapper_general">
                 <div className="metabolic_grid">
                     {/* Left: numbered service items */}
@@ -47,6 +50,7 @@ export default function MetabolicSection({ onGetQuote }: MetabolicSectionProps) 
                             <div key={item.number} className="core_item">
                                 <div className="core_number">0{item.number}</div>
                                 <div className="core_content">
+                                    <div className="core_title">{item.title}</div>
                                     <div className="core_desc base_p">{item.desc}</div>
                                     <div className="core_bullets">
                                         {item.bullets.map(b => (

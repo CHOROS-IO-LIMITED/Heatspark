@@ -76,7 +76,7 @@ export default function TeamCarousel() {
     };
 
     return (
-        <section className="carousel_interviews">
+        <section className="carousel_interviews section_alt">
             <div className="heading_arrows">
                 <div>
                     <div className="section_tag">Our Services</div>

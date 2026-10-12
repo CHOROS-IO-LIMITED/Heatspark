@@ -1,5 +1,3 @@
-// TODO: replace with real logo when available
-
 const NAV_COLS = [
     {
         label: 'Services',
@@ -21,10 +19,11 @@ const NAV_COLS = [
     {
         label: 'Accreditations',
         links: [
-            { label: 'Gas Safe Registered', href: '#' },
-            { label: 'NICEIC Approved', href: '#' },
-            { label: 'Fully Insured', href: '#' },
-            { label: 'Privacy Policy', href: '/privacy' },
+            // Plain text (no href) until there are verification pages to link to.
+            // TODO: add 'Privacy Policy' back once a /privacy page exists.
+            { label: 'Gas Safe Registered' },
+            { label: 'NICEIC Approved' },
+            { label: 'Fully Insured' },
         ],
     },
     {
@@ -78,11 +77,15 @@ export default function SiteFooter() {
                             {NAV_COLS.map(col => (
                                 <div key={col.label} className="footer_col">
                                     <div className="footer_col_label">{col.label}</div>
-                                    {col.links.map(link => (
+                                    {col.links.map(link => ('href' in link ? (
                                         <a key={link.label} href={link.href} className="footer_link base_p">
                                             {link.label}
                                         </a>
-                                    ))}
+                                    ) : (
+                                        <span key={link.label} className="footer_link base_p" style={{ cursor: 'default' }}>
+                                            {link.label}
+                                        </span>
+                                    )))}
                                 </div>
                             ))}
                         </div>

@@ -1,13 +1,9 @@
-const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
-
-const ICON_GAS  = `${CDN}/69513464dfe460db80641edd_icon-1.png`;
-const ICON_CERT = `${CDN}/69513464a9e2df94324a1a7a_icon-2.png`;
-const ICON_CALL = `${CDN}/69513464d6b94872f95059f7_icon-3.png`;
+import { BoltIcon, ClockIcon, ShieldIcon } from '@/ABetterLou/icons';
 
 const TRUST_ITEMS = [
-    { icon: ICON_GAS,  alt: 'Gas Safe icon', title: 'Gas Safe Registered', desc: 'All gas engineers registered and compliant.' },
-    { icon: ICON_CERT, alt: 'NICEIC icon',   title: 'NICEIC Approved',     desc: 'Certified electricians on every job.' },
-    { icon: ICON_CALL, alt: 'Emergency icon', title: '24/7 Emergency',     desc: 'Emergency call-out available around the clock.' },
+    { icon: <ShieldIcon />, title: 'Gas Safe Registered', desc: 'All gas engineers registered and compliant.' },
+    { icon: <BoltIcon />,   title: 'NICEIC Approved',     desc: 'Certified electricians on every job.' },
+    { icon: <ClockIcon />,  title: '24/7 Emergency',      desc: 'Emergency call-out available around the clock.' },
 ];
 
 type HeroSectionProps = {
@@ -51,7 +47,7 @@ export default function HeroSection({ onGetQuote }: HeroSectionProps) {
                     {TRUST_ITEMS.map((item, i) => (
                         <div key={item.title} className={`box_side${i === 2 ? ' last' : ''}`}>
                             <div className="circle_icon">
-                                <img src={item.icon} loading="lazy" alt={item.alt} className="image" />
+                                {item.icon}
                             </div>
                             <div className="box_hero">
                                 <div className="heading_box">{item.title}</div>

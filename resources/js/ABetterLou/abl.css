@@ -2064,8 +2064,6 @@ html:has(.abl-root) {
 /* Native <select> popups render on a light OS surface — give options readable colours */
 .abl-root select option { background: var(--abl-bg); color: var(--abl-beige); }
 
-/* Floating WhatsApp button sits below the mobile menu (200) and quote modal (300) */
-.wa_float { z-index: 150 !important; }
 .close_modal { color: var(--abl-beige); display: flex; }
 
 /* Arrow icon is a near-black SVG: show it white on the black circle, dark on the light variant */
@@ -2077,3 +2075,152 @@ html:has(.abl-root) {
 .plan_brown { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); }
 .plan_btn_light { border: 1px solid rgba(255, 255, 255, 0.4) !important; }
 .plan_btn_light:hover { background: rgba(255, 255, 255, 0.08) !important; }
+
+/* ════════════════════════════════════════
+   UI/UX REFRESH (Oct 2026)
+════════════════════════════════════════ */
+
+/* Hero: wider title so the headline sits on two lines; keep body copy at a readable measure */
+.heading_hero { max-width: 1040px; }
+.heading_hero .ch_box_hero { max-width: 620px; }
+
+/* Alternate section tone so the long page has rhythm */
+.section_alt { background: #121212 !important; }
+
+/* Hero trust row: inline SVG icons */
+.circle_icon svg { width: 20px; height: 20px; color: var(--abl-accent); }
+
+/* Track record: keep the hands behind the count, add a stats row */
+.clock-center {
+  background: radial-gradient(circle, var(--abl-bg) 62%, transparent 63%);
+  width: 190px; height: 190px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.clock_section { padding: 7rem 0; }
+.stats_row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 960px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.stat_cell {
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+.stat_cell:last-child { border-right: none; }
+.stat_num {
+  font-family: var(--abl-font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--abl-accent);
+  line-height: 1.1;
+}
+.stat_label { margin-top: 0.35rem; font-size: 0.875rem; color: var(--abl-beige-dim); }
+
+/* Services list: titled, card-style rows */
+.core_item {
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color var(--abl-transition), background var(--abl-transition);
+}
+.core_item:hover { border-color: rgba(255, 106, 0, 0.45); background: rgba(255, 106, 0, 0.04); }
+.list_core { display: flex; flex-direction: column; gap: 1rem; }
+.core_title {
+  font-family: var(--abl-font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--abl-beige);
+}
+.core_number { font-size: 2.25rem; min-width: 2.75rem; }
+
+/* Mission: "why choose us" card */
+.fs_right { justify-content: flex-end; }
+.why_card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(13, 13, 13, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.why_card_title {
+  font-family: var(--abl-font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--abl-beige);
+}
+.why_list { display: flex; flex-direction: column; gap: 1rem; list-style: none; padding: 0; margin: 0; }
+.why_item { display: flex; gap: 0.875rem; align-items: flex-start; }
+.why_check {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 106, 0, 0.15);
+  color: var(--abl-accent);
+  display: flex; align-items: center; justify-content: center;
+}
+.why_check svg { width: 14px; height: 14px; }
+.why_item_title { font-weight: 600; color: var(--abl-beige); font-size: 0.975rem; }
+.why_item_desc { font-size: 0.875rem; color: var(--abl-beige-dim); margin-top: 0.15rem; line-height: 1.5; }
+.why_sign {
+  display: flex; align-items: center; gap: 0.875rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.avatar_initials {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--abl-accent);
+  color: var(--abl-accent);
+  font-family: var(--abl-font-heading);
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Service plans: calmer headline scale */
+.plan_headline.h2 { font-size: clamp(1.75rem, 2.6vw, 2.5rem); line-height: 1.12; }
+
+/* FAQ: two columns — sticky intro + help card on the left, accordion on the right */
+.faq_layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: 5rem;
+  align-items: start;
+}
+.faq_aside { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 2rem; }
+.faq_aside .faq_header { margin-bottom: 0; }
+.help_card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.help_card_title { font-family: var(--abl-font-heading); font-weight: 700; font-size: 1.15rem; color: var(--abl-beige); }
+.faq_head:hover .faq_q { color: var(--abl-accent); }
+.faq_q { transition: color var(--abl-transition); }
+.faq_icon { transition: transform var(--abl-transition); }
+.accordion-item.is-open .faq_icon { transform: rotate(180deg); }
+
+@media (max-width: 1024px) {
+  .faq_layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .faq_aside { position: static; }
+}
+@media (max-width: 768px) {
+  .stats_row { grid-template-columns: repeat(2, 1fr); }
+  .stat_cell:nth-child(2) { border-right: none; }
+  .stat_cell:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .core_item { padding: 1.25rem; gap: 1rem; }
+  .fs_right { justify-content: stretch; }
+  .why_card { max-width: none; }
+}

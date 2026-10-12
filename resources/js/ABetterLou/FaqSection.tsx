@@ -72,11 +72,26 @@ export default function FaqSection() {
     const toggle = (key: string) => setOpen(prev => (prev === key ? null : key));
 
     return (
-        <section className="faq_section">
-            <div className="wrapper_general">
-                <div className="faq_header">
-                    <div className="faq_tag">FAQ</div>
-                    <h2 className="h2 title_faq">Common <span className="highlight">Questions</span></h2>
+        <section className="faq_section section_alt">
+            <div className="wrapper_general faq_layout">
+                <div className="faq_aside">
+                    <div className="faq_header">
+                        <div className="faq_tag">FAQ</div>
+                        <h2 className="h2 title_faq">Common <span className="highlight">Questions</span></h2>
+                        <p className="base_p">Quick answers on coverage, pricing and the certificates we issue.</p>
+                    </div>
+                    <div className="help_card">
+                        <div className="help_card_title">Still have a question?</div>
+                        <p className="base_p">Speak to an engineer directly — we're happy to talk through your job.</p>
+                        <div className="abl-btn-row">
+                            <a href="tel:07865435946" className="button general">
+                                <div className="buble_button">Call 07865 435 946</div>
+                            </a>
+                            <a href="https://wa.me/447865435946" target="_blank" rel="noopener noreferrer" className="button general plan_btn_light">
+                                <div className="buble_button">WhatsApp us</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div className="faq_groups">
                     {GROUPS.map(group => (

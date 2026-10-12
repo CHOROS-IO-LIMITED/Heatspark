@@ -2,7 +2,16 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { CheckIcon } from '@/ABetterLou/icons';
+
 gsap.registerPlugin(ScrollTrigger);
+
+const WHY_POINTS = [
+    { title: 'Qualified & registered',   desc: 'Gas Safe registered engineers and NICEIC approved electricians.' },
+    { title: 'Clear, written quotes',    desc: 'You know the price before we start — no hidden extras.' },
+    { title: 'One team, three trades',   desc: 'Plumbing, gas and electrical without juggling contractors.' },
+    { title: 'Certified on completion',  desc: 'CP12s, EICRs and completion certificates issued as standard.' },
+];
 
 const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
 const ARROW = `${CDN}/6951317f9e7c4fc62f2c0c81_arrow.svg`;
@@ -84,28 +93,25 @@ export default function MindsetSection({ onGetQuote }: MindsetSectionProps) {
                         </div>
 
                         <div className="fs_right">
-                            <div className="gary_card">
-                                <div
-                                    className="image gary_photo_img"
-                                    style={{
-                                        background: 'var(--abl-brown-dark, #1a1a1a)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        fontSize: '2rem',
-                                        fontFamily: 'var(--abl-font-heading)',
-                                        fontWeight: 700,
-                                        color: 'var(--abl-accent, #ff6a00)',
-                                        borderRadius: '50%',
-                                        width: '80px',
-                                        height: '80px',
-                                    }}
-                                >
-                                    OD
-                                </div>
-                                <div className="gary_info">
-                                    <div className="member_name">Owen Davies</div>
-                                    <div className="member_desc">Director, Heat Spark Energy Services Ltd</div>
+                            <div className="why_card">
+                                <div className="why_card_title">Why customers choose Heat Spark</div>
+                                <ul className="why_list">
+                                    {WHY_POINTS.map(p => (
+                                        <li key={p.title} className="why_item">
+                                            <span className="why_check"><CheckIcon /></span>
+                                            <div>
+                                                <div className="why_item_title">{p.title}</div>
+                                                <div className="why_item_desc">{p.desc}</div>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="why_sign">
+                                    <div className="avatar_initials" aria-hidden="true">OD</div>
+                                    <div>
+                                        <div className="member_name">Owen Davies</div>
+                                        <div className="member_desc">Director, Heat Spark Energy Services Ltd</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,14 @@ const TOTAL_DOTS  = 36;
 const LARGE_EVERY = 3;  // every 3rd dot is large
 const RADIUS      = 130; // px — matches 300px container
 
+// Only claims the site already makes elsewhere (decade of work, 24/7, three trades, accreditations).
+const STATS = [
+    { num: '10+',  label: 'Years in the trade' },
+    { num: '24/7', label: 'Emergency call-out' },
+    { num: '3',    label: 'Trades under one roof' },
+    { num: '100%', label: 'Gas Safe & NICEIC work' },
+];
+
 function getDotPos(i: number): { left: number; top: number } {
     const angle    = (i / TOTAL_DOTS) * 2 * Math.PI - Math.PI / 2;
     const isLarge  = i % LARGE_EVERY === 0;
@@ -116,6 +124,15 @@ export default function ClockSection() {
                     <div className="base_p">
                         Over a decade of trusted plumbing, gas and electrical work across domestic and commercial properties.
                     </div>
+                </div>
+
+                <div className="stats_row">
+                    {STATS.map(s => (
+                        <div key={s.label} className="stat_cell">
+                            <div className="stat_num">{s.num}</div>
+                            <div className="stat_label">{s.label}</div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

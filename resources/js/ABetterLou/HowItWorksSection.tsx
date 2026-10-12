@@ -96,9 +96,6 @@ export default function HowItWorksSection({ onGetQuote }: HowItWorksSectionProps
                     <div className="timeline_progress">
                         <div className="line_progress" />
                         <div className="side_info">
-                            <div className="headling_how">
-                                <h2 className="h2 small">How it works</h2>
-                            </div>
                             <ul className="points_list" role="list">
                                 {STEPS.map(step => (
                                     <li key={step.number} className="item_point" role="listitem">
