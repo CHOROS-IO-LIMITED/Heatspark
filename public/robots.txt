@@ -4,12 +4,12 @@ Disallow: /dashboard
 Disallow: /login
 Disallow: /register
 Disallow: /auth/
-Disallow: /thank-you
 Disallow: /api/
 Disallow: /settings/
+Disallow: /user/
 
 # Allow homepage and public pages
 Allow: /
 
 # Sitemap location
-Sitemap: https://auldheating.com/sitemap.xml
+Sitemap: https://heatsparkenergy.co.uk/sitemap.xml

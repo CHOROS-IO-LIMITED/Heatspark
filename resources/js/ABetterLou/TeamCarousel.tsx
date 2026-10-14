@@ -28,7 +28,7 @@ const SERVICES = [
         num: '04',
         name: 'Electrical',
         photo: PHOTOS.sockets,
-        role: 'NICEIC approved — rewires, consumer units, EICRs',
+        role: 'NAPIT registered — rewires, consumer units, EICRs',
         bullets: ['Full & partial rewires', 'Consumer unit upgrades', 'EICR inspections', 'EV charger installation'],
     },
 ];

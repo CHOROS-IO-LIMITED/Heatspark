@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { whatsappUrl } from '@/ABetterLou/business';
 
-const GROUPS = [
+// Exported so the home page can publish these as FAQ structured data for Google.
+export const FAQ_GROUPS = [
     {
         label: 'Our Services',
         items: [
@@ -15,6 +17,14 @@ const GROUPS = [
             {
                 q: 'Can you handle both domestic and commercial work?',
                 a: 'Absolutely. We work with homeowners, landlords, and businesses of all sizes. Whether it\'s a single repair or a multi-site commercial contract, we have the team and qualifications to handle it.',
+            },
+            {
+                q: 'Do you service commercial gas appliances and catering equipment?',
+                a: 'Yes. We carry out planned servicing and breakdown repairs on commercial gas appliances, catering equipment, boilers and plant rooms — for restaurants, pubs, schools, offices and landlords. Call 07865 435 946 if you have a breakdown.',
+            },
+            {
+                q: 'Can you service the LPG in my caravan or boat?',
+                a: 'Yes. We are fully LPG qualified and service, safety-check and repair LPG systems and appliances in static and touring caravans, narrowboats and other boats.',
             },
             {
                 q: 'Do you work weekends?',
@@ -52,11 +62,11 @@ const GROUPS = [
             },
             {
                 q: 'What is an EICR?',
-                a: 'An Electrical Installation Condition Report (EICR) is a formal inspection of your property\'s fixed wiring. It\'s required for rental properties every 5 years and recommended for all homes. Our NICEIC approved electricians carry these out.',
+                a: 'An Electrical Installation Condition Report (EICR) is a formal inspection of your property\'s fixed wiring. It\'s required for rental properties every 5 years and recommended for all homes. Our NAPIT registered electricians carry these out.',
             },
             {
                 q: 'Are your engineers Gas Safe registered?',
-                a: 'Yes. Every engineer carrying out gas work is Gas Safe registered — it\'s a legal requirement. You can ask to see our Gas Safe ID card before any gas work begins.',
+                a: 'Yes. Every engineer carrying out gas work is Gas Safe registered — it\'s a legal requirement. Our Gas Safe registration number is 978573 — you can check it on the Gas Safe Register, and ask to see our ID card before any gas work begins.',
             },
             {
                 q: 'Do you provide completion certificates for electrical work?',
@@ -87,14 +97,14 @@ export default function FaqSection() {
                             <a href="tel:07865435946" className="button general">
                                 <div className="buble_button">Call 07865 435 946</div>
                             </a>
-                            <a href="https://wa.me/447865435946" target="_blank" rel="noopener noreferrer" className="button general plan_btn_light">
+                            <a href={whatsappUrl("Hi Heat Spark, I have a question:")} target="_blank" rel="noopener noreferrer" className="button general plan_btn_light">
                                 <div className="buble_button">WhatsApp us</div>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div className="faq_groups">
-                    {GROUPS.map(group => (
+                    {FAQ_GROUPS.map(group => (
                         <div key={group.label} className="faq_group">
                             <div className="faq_group_label">{group.label}</div>
                             <div className="faq_list">

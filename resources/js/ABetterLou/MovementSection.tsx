@@ -6,7 +6,7 @@ const ARROW = `${CDN}/6951317f9e7c4fc62f2c0c81_arrow.svg`;
 
 const BULLETS = [
     'All gas engineers Gas Safe registered — legally compliant on every job',
-    'Electricians NICEIC approved — fully certified and insured work',
+    'Electricians NAPIT registered — fully certified and insured work',
     'Comprehensive risk assessments, clean work sites, and full documentation',
 ];
 

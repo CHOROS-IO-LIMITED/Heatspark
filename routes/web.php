@@ -24,15 +24,15 @@ use App\Http\Middleware\UserMiddleware;
 use Inertia\Inertia;
 
 // Public routes — Heat Spark Energy Services website
-Route::get('/', function () { return \Inertia\Inertia::render('ABetterLouHome'); })->name('home');
+Route::get('/', [HeatsparkController::class, 'home'])->name('home');
 Route::get('/about', [HeatsparkController::class, 'about'])->name('about');
 Route::get('/services', [HeatsparkController::class, 'services'])->name('services');
 Route::get('/portfolio', [HeatsparkController::class, 'portfolio'])->name('portfolio');
 Route::get('/contact', [HeatsparkController::class, 'contact'])->name('contact');
 Route::post('/contact/submit', [HeatsparkController::class, 'submitContact'])->name('contact.submit');
 
-// ABL reference page
-Route::get('/abl', function () { return \Inertia\Inertia::render('ABetterLouHome'); })->name('abl');
+// Legacy URL: old duplicate of the home page — redirect so Google doesn't index the same content twice.
+Route::permanentRedirect('/abl', '/');
 
 // Guest routes (authentication)
 Route::middleware(GuestMiddleware::class)->group(function () {

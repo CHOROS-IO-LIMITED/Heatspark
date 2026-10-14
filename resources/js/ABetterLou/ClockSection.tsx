@@ -10,7 +10,7 @@ const STATS = [
     { num: '10+',  label: 'Years in the trade' },
     { num: '24/7', label: 'Emergency call-out' },
     { num: '3',    label: 'Trades under one roof' },
-    { num: '100%', label: 'Gas Safe & NICEIC work' },
+    { num: '100%', label: 'Gas Safe & NAPIT registered' },
 ];
 
 function getDotPos(i: number): { left: number; top: number } {

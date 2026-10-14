@@ -30,11 +30,7 @@ export default function Portfolio() {
     const visible = filter === 'All' ? PROJECTS : PROJECTS.filter(p => p.cat === filter);
 
     return (
-        <PageShell
-            title="Portfolio — Our Work | Heat Spark Energy Services"
-            description="See examples of our plumbing, gas and electrical work. Boiler installations, bathroom fits, consumer units and more."
-            path="/portfolio"
-        >
+        <PageShell>
             {openQuote => (
                 <>
                     <PageHero

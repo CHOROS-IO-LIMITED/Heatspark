@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { whatsappUrl } from '@/ABetterLou/business';
 
 const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
 const PLUS_ICON = `${CDN}/695eb6d83d09b4baa1cb25b0_plus_included.png`;
@@ -83,9 +84,11 @@ export default function MobileMenu({ open, onClose, onGetQuote }: MobileMenuProp
                                     <div className="item_content-wrapper">
                                         <div className="accordion_paragraph">
                                             <div className="mobile_links">
-                                                <a href="/services" className="cover_link" onClick={onClose}>Plumbing</a>
-                                                <a href="/services" className="cover_link" onClick={onClose}>Gas Services</a>
-                                                <a href="/services" className="cover_link" onClick={onClose}>Electrical</a>
+                                                <a href="/services#commercial-gas" className="cover_link" onClick={onClose}>Commercial Gas</a>
+                                                <a href="/services#lpg" className="cover_link" onClick={onClose}>LPG — Caravans &amp; Boats</a>
+                                                <a href="/services#gas" className="cover_link" onClick={onClose}>Domestic Gas</a>
+                                                <a href="/services#plumbing" className="cover_link" onClick={onClose}>Plumbing</a>
+                                                <a href="/services#electrical" className="cover_link" onClick={onClose}>Electrical</a>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +130,7 @@ export default function MobileMenu({ open, onClose, onGetQuote }: MobileMenuProp
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
                             </a>
                             <a
-                                href="https://wa.me/447865435946"
+                                href={whatsappUrl()}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="social_circle"

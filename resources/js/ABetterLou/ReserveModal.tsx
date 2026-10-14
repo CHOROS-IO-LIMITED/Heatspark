@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { QUOTE_SERVICES } from '@/ABetterLou/business';
 
 // Inline so it inherits the beige text colour (the old CDN icon was dark brown on the dark modal).
 function CloseIcon() {
@@ -8,19 +9,6 @@ function CloseIcon() {
         </svg>
     );
 }
-
-const SERVICES_LIST = [
-    'Plumbing — General',
-    'Plumbing — Emergency',
-    'Gas — Boiler Installation',
-    'Gas — Boiler Service / Repair',
-    'Gas — Landlord Safety Certificate (CP12)',
-    'Electrical — Rewire',
-    'Electrical — Consumer Unit Upgrade',
-    'Electrical — EICR',
-    'Electrical — General',
-    'Other',
-];
 
 type ReserveModalProps = {
     open: boolean;
@@ -185,7 +173,7 @@ export default function ReserveModal({ open, onClose }: ReserveModalProps) {
                                             style={{ background: 'transparent' }}
                                         >
                                             <option value="">Select a service…</option>
-                                            {SERVICES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
+                                            {QUOTE_SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
                                         </select>
                                     </div>
 

@@ -7,7 +7,7 @@ import { CheckIcon } from '@/ABetterLou/icons';
 gsap.registerPlugin(ScrollTrigger);
 
 const WHY_POINTS = [
-    { title: 'Qualified & registered',   desc: 'Gas Safe registered engineers and NICEIC approved electricians.' },
+    { title: 'Qualified & registered',   desc: 'Gas Safe registered engineers and NAPIT registered electricians.' },
     { title: 'Clear, written quotes',    desc: 'You know the price before we start — no hidden extras.' },
     { title: 'One team, three trades',   desc: 'Plumbing, gas and electrical without juggling contractors.' },
     { title: 'Certified on completion',  desc: 'CP12s, EICRs and completion certificates issued as standard.' },

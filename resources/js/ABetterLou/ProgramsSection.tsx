@@ -91,7 +91,7 @@ export default function ProgramsSection({ onGetQuote }: ProgramsSectionProps) {
                         </div>
                         <div className="plan_body">
                             <div className="plan_desc plan_desc_dark base_p">
-                                Gas Safe registered and NICEIC approved — we carry out all gas and electrical work to the highest safety standards with full certification on completion.
+                                Gas Safe and NAPIT registered — we carry out all gas and electrical work to the highest safety standards with full certification on completion.
                             </div>
                             <div className="abl-btn-row plan_cta">
                                 <button

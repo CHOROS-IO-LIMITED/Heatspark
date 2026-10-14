@@ -1,8 +1,10 @@
 import { BoltIcon, ClockIcon, ShieldIcon } from '@/ABetterLou/icons';
+import { WhatsAppButton } from '@/ABetterLou/WhatsAppFloat';
+import { GAS_SAFE_NUMBER } from '@/ABetterLou/business';
 
 const TRUST_ITEMS = [
-    { icon: <ShieldIcon />, title: 'Gas Safe Registered', desc: 'All gas engineers registered and compliant.' },
-    { icon: <BoltIcon />,   title: 'NICEIC Approved',     desc: 'Certified electricians on every job.' },
+    { icon: <ShieldIcon />, title: 'Gas Safe Registered', desc: `Registration no. ${GAS_SAFE_NUMBER} — domestic, commercial & LPG.` },
+    { icon: <BoltIcon />,   title: 'NAPIT Registered',    desc: 'Qualified electricians on every job.' },
     { icon: <ClockIcon />,  title: '24/7 Emergency',      desc: 'Emergency call-out available around the clock.' },
 ];
 
@@ -21,22 +23,24 @@ export default function HeroSection({ onGetQuote }: HeroSectionProps) {
 
                     <div className="ch_box_hero">
                         <div className="base_paragraph">
-                            Trusted domestic and commercial engineers. Gas Safe registered, NICEIC approved, and available 24/7 for emergencies — we fix it right the first time.
+                            Commercial gas servicing and breakdowns, LPG for caravans and boats, plus domestic plumbing, gas and electrical. Gas Safe registered and available 24/7 for emergencies.
                         </div>
                     </div>
 
-                    <button
-                        type="button"
-                        onClick={onGetQuote}
-                        className="button general"
-                        style={{ cursor: 'pointer', border: 'none' }}
-                    >
-                        <div className="buble_button">Get a Free Quote</div>
-                    </button>
-
-                    <a href="tel:07865435946" className="button general" style={{ marginLeft: '0.75rem' }}>
-                        <div className="buble_button">Call 07865 435 946</div>
-                    </a>
+                    <div className="abl-btn-row">
+                        <button
+                            type="button"
+                            onClick={onGetQuote}
+                            className="button general"
+                            style={{ cursor: 'pointer', border: 'none' }}
+                        >
+                            <div className="buble_button">Get a Free Quote</div>
+                        </button>
+                        <a href="tel:07865435946" className="button general">
+                            <div className="buble_button">Call 07865 435 946</div>
+                        </a>
+                        <WhatsAppButton />
+                    </div>
                 </div>
 
                 <div className="heading_bottom">

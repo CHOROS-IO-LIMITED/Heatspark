@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- Server-rendered SEO tags for crawlers and link previews (WhatsApp, Facebook) that don't run JavaScript.
+         The `inertia` attribute lets Inertia's <Head> replace them once the page boots, so nothing is duplicated. --}}
+    {{-- Keep this as a block: the one-line PHP directive form, placed before the block below, breaks Blade's parser. --}}
+    @php
+        $meta = $page['props']['meta'] ?? null;
+        $metaUrl = $meta ? 'https://heatsparkenergy.co.uk' . $meta['path'] : null;
+        $metaImage = 'https://images.pexels.com/photos/17303438/pexels-photo-17303438.jpeg?auto=compress&cs=tinysrgb&w=1200';
+    @endphp
+    @if($meta)
+    <title inertia>{{ $meta['title'] }}</title>
+    <meta name="description" content="{{ $meta['description'] }}" inertia="description">
+    <link rel="canonical" href="{{ $metaUrl }}" inertia="canonical">
+    <meta property="og:type" content="website" inertia="og:type">
+    <meta property="og:site_name" content="Heat Spark Energy Services" inertia="og:site_name">
+    <meta property="og:title" content="{{ $meta['title'] }}" inertia="og:title">
+    <meta property="og:description" content="{{ $meta['description'] }}" inertia="og:description">
+    <meta property="og:url" content="{{ $metaUrl }}" inertia="og:url">
+    <meta property="og:image" content="{{ $metaImage }}" inertia="og:image">
+    <meta name="twitter:card" content="summary_large_image" inertia="twitter:card">
+    @endif
+
     {{-- Preload render-blocking CSS early so download starts before @vite() injects the link tags --}}
     @php
         try {

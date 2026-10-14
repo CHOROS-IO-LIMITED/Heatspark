@@ -24,7 +24,7 @@ const DATA_ITEMS = [
     {
         number: 3,
         title: 'Electrical',
-        desc: 'NICEIC approved electricians delivering safe, certified electrical work.',
+        desc: 'NAPIT registered electricians delivering safe, certified electrical work.',
         bullets: [
             'Full and partial rewires',
             'Consumer unit upgrades and EICRs',

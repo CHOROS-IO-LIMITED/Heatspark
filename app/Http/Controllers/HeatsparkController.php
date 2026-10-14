@@ -8,29 +8,66 @@ use Inertia\Inertia;
 
 class HeatsparkController extends Controller
 {
+    /**
+     * Per-page SEO. Rendered server-side in app.blade.php (for crawlers and link
+     * previews that don't run JavaScript) and reused by the React pages' <Head>.
+     */
+    private const META = [
+        'home' => [
+            'path'        => '/',
+            'title'       => 'Heat Spark Energy Services — Commercial Gas, LPG, Plumbing & Electrical',
+            'description' => 'Gas Safe registered (978573) engineers for commercial gas servicing & breakdowns, LPG for caravans & boats, plumbing and NAPIT electrical work. Call 07865 435 946 or WhatsApp us.',
+        ],
+        'about' => [
+            'path'        => '/about',
+            'title'       => 'About Us — Heat Spark Energy Services',
+            'description' => 'Heat Spark Energy Services Ltd — Gas Safe (978573), OFTEC (C504180) and NAPIT registered, City & Guilds qualified engineers for homes and businesses.',
+        ],
+        'services' => [
+            'path'        => '/services',
+            'title'       => 'Services — Commercial Gas, LPG, Plumbing & Electrical | Heat Spark Energy',
+            'description' => 'Commercial gas servicing & breakdowns, LPG for caravans & boats, domestic gas, plumbing and electrical. Gas Safe registered (978573), OFTEC and NAPIT registered.',
+        ],
+        'portfolio' => [
+            'path'        => '/portfolio',
+            'title'       => 'Portfolio — Our Work | Heat Spark Energy Services',
+            'description' => 'Examples of our gas, plumbing and electrical work — boiler installations, bathroom fits, consumer units and more.',
+        ],
+        'contact' => [
+            'path'        => '/contact',
+            'title'       => 'Contact Us — Heat Spark Energy Services',
+            'description' => 'Get a free quote from Heat Spark Energy Services. Call 07865 435 946, WhatsApp us, or use our contact form.',
+        ],
+    ];
+
+    private function page(string $component, string $key)
+    {
+        return Inertia::render($component, ['meta' => self::META[$key]]);
+    }
+
     public function home()
     {
-        return Inertia::render('Heatspark/Home');
+        return $this->page('ABetterLouHome', 'home');
     }
 
     public function about()
     {
-        return Inertia::render('Heatspark/About');
+        return $this->page('Heatspark/About', 'about');
     }
 
     public function services()
     {
-        return Inertia::render('Heatspark/Services');
+        return $this->page('Heatspark/Services', 'services');
     }
 
     public function portfolio()
     {
-        return Inertia::render('Heatspark/Portfolio');
+        return $this->page('Heatspark/Portfolio', 'portfolio');
     }
 
     public function contact()
     {
-        return Inertia::render('Heatspark/Contact');
+        return $this->page('Heatspark/Contact', 'contact');
     }
 
     public function submitContact(Request $request)

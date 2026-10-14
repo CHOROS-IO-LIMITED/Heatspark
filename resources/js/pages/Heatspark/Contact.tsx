@@ -3,21 +3,14 @@ import PageShell from '@/ABetterLou/PageShell';
 import { PageHero, SectionHead } from '@/ABetterLou/PageBlocks';
 import { ChatIcon, ClockIcon, MailIcon, PhoneIcon, ShieldIcon } from '@/ABetterLou/icons';
 import { PHOTOS } from '@/ABetterLou/photos';
-
-const SERVICES_LIST = [
-    'Plumbing — General', 'Plumbing — Emergency',
-    'Gas — Boiler Installation', 'Gas — Boiler Service / Repair',
-    'Gas — Landlord Safety Certificate (CP12)',
-    'Electrical — Rewire', 'Electrical — Consumer Unit Upgrade',
-    'Electrical — EICR', 'Electrical — General', 'Other',
-];
+import { ACCREDITATIONS, QUOTE_SERVICES, whatsappUrl } from '@/ABetterLou/business';
 
 type FormState = { firstName: string; lastName: string; email: string; phone: string; service: string; message: string };
 const EMPTY: FormState = { firstName: '', lastName: '', email: '', phone: '', service: '', message: '' };
 
 const CONTACTS: { icon: ReactNode; label: string; value: string; hint: string; href?: string; external?: boolean }[] = [
     { icon: <PhoneIcon />, label: 'Phone',    value: '07865 435 946',               hint: 'Mon–Sat 7am–7pm · Emergencies 24/7', href: 'tel:07865435946' },
-    { icon: <ChatIcon />,  label: 'WhatsApp', value: 'Message us',                  hint: 'Send photos of the job for a faster quote', href: 'https://wa.me/447865435946', external: true },
+    { icon: <ChatIcon />,  label: 'WhatsApp', value: 'Message us',                  hint: 'Send photos of the job for a faster quote', href: whatsappUrl("Hi Heat Spark, I'd like a quote. Here are some photos of the job:"), external: true },
     { icon: <MailIcon />,  label: 'Email',    value: 'admin@heatsparkenergy.co.uk', hint: 'We aim to reply within 2 hours', href: 'mailto:admin@heatsparkenergy.co.uk' },
     { icon: <ClockIcon />, label: 'Hours',    value: 'Mon–Sat, 7am–7pm',            hint: '24/7 for genuine emergencies' },
 ];
@@ -45,11 +38,7 @@ export default function Contact() {
     };
 
     return (
-        <PageShell
-            title="Contact Us — Heat Spark Energy Services"
-            description="Get in touch with Heat Spark Energy Services for a free quote. Call 07865 435 946 or use our contact form."
-            path="/contact"
-        >
+        <PageShell>
             {() => (
                 <>
                     <PageHero
@@ -97,8 +86,8 @@ export default function Contact() {
                                 </div>
 
                                 <div className="badge_row">
-                                    {['Gas Safe Registered', 'NICEIC Approved', 'Fully Insured'].map(b => (
-                                        <span key={b} className="badge"><ShieldIcon />{b}</span>
+                                    {ACCREDITATIONS.map(a => (
+                                        <span key={a.name} className="badge"><ShieldIcon />{a.number ? `${a.name} · ${a.number}` : a.name}</span>
                                     ))}
                                 </div>
                             </div>
@@ -125,7 +114,7 @@ export default function Contact() {
                                             <label className="field_label" htmlFor="service">Service required</label>
                                             <select id="service" name="service" value={form.service} onChange={change} className="field_input" style={{ cursor: 'pointer' }}>
                                                 <option value="">Select a service…</option>
-                                                {SERVICES_LIST.map(s => <option key={s} value={s}>{s}</option>)}
+                                                {QUOTE_SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
                                             </select>
                                         </div>
                                         <div>

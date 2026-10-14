@@ -1,10 +1,14 @@
+import { ACCREDITATIONS, GAS_SAFE_NUMBER, whatsappUrl } from '@/ABetterLou/business';
+
 const NAV_COLS = [
     {
         label: 'Services',
         links: [
-            { label: 'Plumbing', href: '/services' },
-            { label: 'Gas Services', href: '/services' },
-            { label: 'Electrical', href: '/services' },
+            { label: 'Commercial Gas', href: '/services#commercial-gas' },
+            { label: 'LPG — Caravans & Boats', href: '/services#lpg' },
+            { label: 'Domestic Gas', href: '/services#gas' },
+            { label: 'Plumbing', href: '/services#plumbing' },
+            { label: 'Electrical', href: '/services#electrical' },
             { label: 'Portfolio', href: '/portfolio' },
         ],
     },
@@ -19,11 +23,11 @@ const NAV_COLS = [
     {
         label: 'Accreditations',
         links: [
-            // Plain text (no href) until there are verification pages to link to.
             // TODO: add 'Privacy Policy' back once a /privacy page exists.
-            { label: 'Gas Safe Registered' },
-            { label: 'NICEIC Approved' },
-            { label: 'Fully Insured' },
+            ...ACCREDITATIONS.map(a => {
+                const label = a.number ? `${a.name} · ${a.number}` : a.name;
+                return a.verifyUrl ? { label, href: a.verifyUrl } : { label };
+            }),
         ],
     },
     {
@@ -46,7 +50,7 @@ export default function SiteFooter() {
                         <div className="footer_brand">
                             <img src="/images/Untitled-1.webp" alt="Heat Spark Energy Services" style={{ height: '72px', width: 'auto', display: 'block', alignSelf: 'flex-start', marginBottom: '0.75rem' }} />
                             <div className="footer_tagline base_p">
-                                Expert domestic and commercial plumbing, gas and electrical services.
+                                Commercial gas, LPG, plumbing and electrical engineers for homes and businesses.
                             </div>
                             <div className="subscription_form">
                                 <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
@@ -60,7 +64,7 @@ export default function SiteFooter() {
                                         Facebook
                                     </a>
                                     <a
-                                        href="https://wa.me/447865435946"
+                                        href={whatsappUrl()}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="footer_link base_p"
@@ -78,7 +82,7 @@ export default function SiteFooter() {
                                 <div key={col.label} className="footer_col">
                                     <div className="footer_col_label">{col.label}</div>
                                     {col.links.map(link => ('href' in link ? (
-                                        <a key={link.label} href={link.href} className="footer_link base_p">
+                                        <a key={link.label} href={link.href} className="footer_link base_p" {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
                                             {link.label}
                                         </a>
                                     ) : (
@@ -97,7 +101,7 @@ export default function SiteFooter() {
                             © {new Date().getFullYear()} Heat Spark Energy Services Ltd. All rights reserved.
                         </div>
                         <div className="footer_legal base_p">
-                            Gas Safe Registered. NICEIC Approved Contractor. All engineers fully qualified and insured. Heat Spark Energy Services Ltd is registered in England and Wales.
+                            {`Gas Safe Register no. ${GAS_SAFE_NUMBER}. OFTEC no. C504180. NAPIT registered. City & Guilds qualified engineers. Trade mark no. 4271344.`} Heat Spark Energy Services Ltd is registered in England and Wales.
                         </div>
                     </div>
                 </div>

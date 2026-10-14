@@ -2,11 +2,12 @@ import type { ReactNode } from 'react';
 import PageShell from '@/ABetterLou/PageShell';
 import PlaceholderGraphic from '@/ABetterLou/PlaceholderGraphic';
 import { CallButton, CtaBand, PageHero, QuoteButton, SectionHead } from '@/ABetterLou/PageBlocks';
-import { CheckIcon, ClockIcon, ShieldIcon, StarIcon, TagIcon, WrenchIcon } from '@/ABetterLou/icons';
+import { CheckIcon, ClockIcon, ShieldIcon, TagIcon, WrenchIcon } from '@/ABetterLou/icons';
 import { PHOTOS } from '@/ABetterLou/photos';
+import { AccreditationStrip } from '@/ABetterLou/SpecialistSections';
 
 const VALUES: { icon: ReactNode; title: string; desc: string }[] = [
-    { icon: <ShieldIcon />, title: 'Safety First',         desc: 'Every job completed to the highest safety standards. Gas Safe registered and NICEIC approved — your safety is non-negotiable.' },
+    { icon: <ShieldIcon />, title: 'Safety First',         desc: 'Every job completed to the highest safety standards. Gas Safe and NAPIT registered — your safety is non-negotiable.' },
     { icon: <ClockIcon />,  title: 'Reliable & On Time',   desc: 'We respect your time. Engineers arrive when we say, and complete work within the agreed timeframe.' },
     { icon: <TagIcon />,    title: 'Transparent Pricing',  desc: 'No hidden fees, no surprises. Clear quotes before work begins — and we stick to them.' },
     { icon: <WrenchIcon />, title: 'Quality Workmanship',  desc: 'From the smallest repair to a full installation, every job is done right. We take pride in our work.' },
@@ -20,15 +21,10 @@ const CHECKLIST = [
     'Emergency call-out 24/7',
 ];
 
-const ACCREDITATIONS = ['Gas Safe Registered', 'NICEIC Approved', 'Fully Insured', '5-Star Rated'];
 
 export default function About() {
     return (
-        <PageShell
-            title="About Us — Heat Spark Energy Services"
-            description="Learn about Heat Spark Energy Services Ltd — trusted domestic and commercial plumbing, gas and electrical specialists. Gas Safe registered and NICEIC approved."
-            path="/about"
-        >
+        <PageShell>
             {openQuote => (
                 <>
                     <PageHero
@@ -98,13 +94,9 @@ export default function About() {
 
                     {/* Accreditations */}
                     <section className="page_section section_alt">
-                        <div className="wrapper_general page_split">
-                            <SectionHead tag="Accredited & Certified" title={<>You're in <span className="highlight">Safe Hands</span></>} desc="All engineers fully qualified, registered, and accredited." />
-                            <div className="badge_row">
-                                {ACCREDITATIONS.map(cert => (
-                                    <span key={cert} className="badge">{cert === '5-Star Rated' ? <StarIcon /> : <ShieldIcon />}{cert}</span>
-                                ))}
-                            </div>
+                        <div className="wrapper_general">
+                            <SectionHead tag="Accredited & Certified" title={<>You're in <span className="highlight">Safe Hands</span></>} desc="Fully qualified and registered — every number below can be checked on the official register." />
+                            <AccreditationStrip />
                         </div>
                     </section>
 

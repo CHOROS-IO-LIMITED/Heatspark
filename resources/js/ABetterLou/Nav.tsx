@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import PlaceholderGraphic from '@/ABetterLou/PlaceholderGraphic';
+import { WhatsAppIcon } from '@/ABetterLou/WhatsAppFloat';
+import { whatsappUrl } from '@/ABetterLou/business';
 import { PHOTOS } from '@/ABetterLou/photos';
 
 const CDN = 'https://cdn.prod.website-files.com/6939a31d6f0751cc94b4a574';
@@ -79,6 +81,9 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
 
                     {/* CTA buttons */}
                     <div className="button_cta">
+                        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="nav_wa" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
+                            <WhatsAppIcon size={20} />
+                        </a>
                         <button type="button" className="button" onClick={onGetQuote}>
                             <div className="button_main">Get a Free Quote</div>
                         </button>
@@ -103,9 +108,10 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
                             <div className="title_submenu">
                                 Domestic &amp; commercial<br />services
                             </div>
+                            <a href="/services" className="submenu_all" onClick={closeSubmenu}>All services: gas, plumbing &amp; electrical →</a>
                         </div>
                         <div className="items_memberships">
-                            <a href="/services" className="membership_link" onClick={closeSubmenu}>
+                            <a href="/services#commercial-gas" className="membership_link" onClick={closeSubmenu}>
                                 <div className="above_info">
                                     <div className="icon_circle">
                                         <div className="arrow_general">
@@ -116,13 +122,13 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
                                         </div>
                                     </div>
                                     <div className="title_membership">
-                                        <div className="txt_membership">Plumbing Services</div>
+                                        <div className="txt_membership">Commercial Gas</div>
                                     </div>
                                 </div>
                                 <div className="overlay_membership" />
-                                <PlaceholderGraphic type="plumbing" className="image_back" photo={PHOTOS.plumbingPipes} sizes="(max-width: 480px) 100vw, 400px" />
+                                <PlaceholderGraphic type="gas" className="image_back" photo={PHOTOS.commercialRange} sizes="(max-width: 480px) 100vw, 400px" />
                             </a>
-                            <a href="/services" className="membership_link" onClick={closeSubmenu}>
+                            <a href="/services#lpg" className="membership_link" onClick={closeSubmenu}>
                                 <div className="above_info">
                                     <div className="icon_circle">
                                         <div className="arrow_general">
@@ -133,11 +139,11 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
                                         </div>
                                     </div>
                                     <div className="title_membership">
-                                        <div className="txt_membership">Gas &amp; Electrical</div>
+                                        <div className="txt_membership">LPG — Caravans &amp; Boats</div>
                                     </div>
                                 </div>
                                 <div className="overlay_membership" />
-                                <PlaceholderGraphic type="gas" className="image_back" photo={PHOTOS.panelWork} sizes="(max-width: 480px) 100vw, 400px" />
+                                <PlaceholderGraphic type="gas" className="image_back" photo={PHOTOS.staticCaravans} sizes="(max-width: 480px) 100vw, 400px" />
                             </a>
                         </div>
                     </div>
