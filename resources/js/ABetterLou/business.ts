@@ -27,13 +27,24 @@ export type Accreditation = {
 export const ACCREDITATIONS: Accreditation[] = [
     { name: 'Gas Safe Register', desc: 'Registered gas business',      number: '978573',  verifyUrl: 'https://www.gassaferegister.co.uk/' },
     { name: 'OFTEC',             desc: 'Oil heating',                    number: 'C504180', verifyUrl: 'https://www.oftec.org/consumers/find-an-oftec-registered-technician' },
-    { name: 'NAPIT',             desc: 'Electrical installations',                          verifyUrl: 'https://search.napit.org.uk/' },
+    { name: 'NAPIT',             desc: 'Electrical installations',       number: '84695',   verifyUrl: 'https://search.napit.org.uk/' },
     { name: 'City & Guilds',     desc: 'Qualified engineers' },
-    // Shown without ® until the client confirms the mark is registered (not just applied for).
-    { name: 'Trade mark',        desc: 'Heat Spark brand',               number: '4271344' },
+    // Registration confirmed by the client (Oct 2026), so ® may be used.
+    { name: 'Registered Trade Mark®', desc: 'Heat Spark brand',          number: '4271344' },
 ];
 
 export const GAS_SAFE_NUMBER = '978573';
+
+// Supplied by the client for local search (it differs from the Companies House address — that's fine).
+export const ADDRESS = {
+    street: '102 Bonymaen Road',
+    locality: 'Bonymaen',
+    town: 'Swansea',
+    postcode: 'SA1 7AW',
+} as const;
+export const ADDRESS_LINE = `${ADDRESS.street}, ${ADDRESS.locality}, ${ADDRESS.town}, ${ADDRESS.postcode}`;
+
+export const SERVICE_AREA = 'South & Mid Wales and the Bristol Channel';
 
 /** Options for the "Service required" dropdown on the contact form and quote modal. */
 export const QUOTE_SERVICES = [

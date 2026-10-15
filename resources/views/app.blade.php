@@ -12,7 +12,7 @@
     @php
         $meta = $page['props']['meta'] ?? null;
         $metaUrl = $meta ? 'https://heatsparkenergy.co.uk' . $meta['path'] : null;
-        $metaImage = 'https://images.pexels.com/photos/17303438/pexels-photo-17303438.jpeg?auto=compress&cs=tinysrgb&w=1200';
+        $metaImage = 'https://images.pexels.com/photos/34938442/pexels-photo-34938442.jpeg?auto=compress&cs=tinysrgb&w=1200';
     @endphp
     @if($meta)
     <title inertia>{{ $meta['title'] }}</title>

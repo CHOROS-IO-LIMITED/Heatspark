@@ -16,9 +16,9 @@ type Service = {
 // Commercial gas leads the page — the client wants it pushed hardest.
 const SERVICES: Service[] = [
     {
-        id: 'commercial-gas', num: '01', tab: 'Commercial Gas', title: 'Commercial Gas Servicing & Breakdowns', graphic: 'gas', photo: PHOTOS.cateringKitchen,
-        desc: `Gas Safe registered (no. ${GAS_SAFE_NUMBER}) engineers keeping restaurants, pubs, schools, offices and landlords' properties running — planned servicing to prevent breakdowns, and fast repairs when they happen.`,
-        items: [...COMMERCIAL_SERVICES, 'Gas interlock & ventilation checks', 'Maintenance contracts for multiple sites', 'Emergency breakdown call-out'],
+        id: 'commercial-gas', num: '01', tab: 'Commercial Gas', title: 'Commercial Gas Servicing & Breakdowns', graphic: 'gas', photo: PHOTOS.plantRoom,
+        desc: `Gas Safe registered (no. ${GAS_SAFE_NUMBER}) engineers keeping offices, schools, pubs, shops and landlords' properties running across South & Mid Wales — planned servicing to prevent breakdowns, and fast repairs when they happen.`,
+        items: [...COMMERCIAL_SERVICES, 'Maintenance contracts for multiple sites', 'Emergency breakdown call-out'],
         whatsapp: "Hi Heat Spark, I'd like to ask about commercial gas servicing / a breakdown.",
     },
     {

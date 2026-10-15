@@ -15,28 +15,28 @@ class HeatsparkController extends Controller
     private const META = [
         'home' => [
             'path'        => '/',
-            'title'       => 'Heat Spark Energy Services — Commercial Gas, LPG, Plumbing & Electrical',
-            'description' => 'Gas Safe registered (978573) engineers for commercial gas servicing & breakdowns, LPG for caravans & boats, plumbing and NAPIT electrical work. Call 07865 435 946 or WhatsApp us.',
+            'title'       => 'Gas Engineers Swansea & South Wales — Commercial Gas, LPG, Plumbing & Electrical | Heat Spark',
+            'description' => 'Swansea-based Gas Safe registered (978573) engineers covering South & Mid Wales and the Bristol Channel. Commercial gas servicing & breakdowns, LPG for caravans & boats, plumbing and NAPIT electrical work.',
         ],
         'about' => [
             'path'        => '/about',
-            'title'       => 'About Us — Heat Spark Energy Services',
-            'description' => 'Heat Spark Energy Services Ltd — Gas Safe (978573), OFTEC (C504180) and NAPIT registered, City & Guilds qualified engineers for homes and businesses.',
+            'title'       => 'About Us — Swansea Gas, Plumbing & Electrical Engineers | Heat Spark',
+            'description' => 'Heat Spark Energy Services Ltd, Swansea — Gas Safe (978573), OFTEC (C504180) and NAPIT (84695) registered, City & Guilds qualified engineers covering South & Mid Wales.',
         ],
         'services' => [
             'path'        => '/services',
-            'title'       => 'Services — Commercial Gas, LPG, Plumbing & Electrical | Heat Spark Energy',
-            'description' => 'Commercial gas servicing & breakdowns, LPG for caravans & boats, domestic gas, plumbing and electrical. Gas Safe registered (978573), OFTEC and NAPIT registered.',
+            'title'       => 'Commercial Gas, LPG, Plumbing & Electrical Services in South Wales | Heat Spark',
+            'description' => 'Commercial gas servicing & breakdowns, LPG for caravans & boats, domestic gas, plumbing and electrical across Swansea, South & Mid Wales and the Bristol Channel. Gas Safe registered (978573).',
         ],
         'portfolio' => [
             'path'        => '/portfolio',
-            'title'       => 'Portfolio — Our Work | Heat Spark Energy Services',
+            'title'       => 'Our Work — Gas, Plumbing & Electrical Projects in South Wales | Heat Spark',
             'description' => 'Examples of our gas, plumbing and electrical work — boiler installations, bathroom fits, consumer units and more.',
         ],
         'contact' => [
             'path'        => '/contact',
-            'title'       => 'Contact Us — Heat Spark Energy Services',
-            'description' => 'Get a free quote from Heat Spark Energy Services. Call 07865 435 946, WhatsApp us, or use our contact form.',
+            'title'       => 'Contact Heat Spark — Gas Engineers in Swansea & South Wales',
+            'description' => 'Get a free quote from Heat Spark Energy Services in Swansea, covering South & Mid Wales. Call 07865 435 946, WhatsApp us, or use our contact form.',
         ],
     ];
 

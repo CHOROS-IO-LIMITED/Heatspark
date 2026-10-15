@@ -1,18 +1,23 @@
 import { useState, type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import PageShell from '@/ABetterLou/PageShell';
 import { PageHero, SectionHead } from '@/ABetterLou/PageBlocks';
-import { ChatIcon, ClockIcon, MailIcon, PhoneIcon, ShieldIcon } from '@/ABetterLou/icons';
+import { ChatIcon, ClockIcon, MailIcon, PhoneIcon, PinIcon, ShieldIcon } from '@/ABetterLou/icons';
 import { PHOTOS } from '@/ABetterLou/photos';
-import { ACCREDITATIONS, QUOTE_SERVICES, whatsappUrl } from '@/ABetterLou/business';
+import { ACCREDITATIONS, ADDRESS_LINE, QUOTE_SERVICES, SERVICE_AREA, whatsappUrl } from '@/ABetterLou/business';
 
 type FormState = { firstName: string; lastName: string; email: string; phone: string; service: string; message: string };
 const EMPTY: FormState = { firstName: '', lastName: '', email: '', phone: '', service: '', message: '' };
+
+// Google Maps for the client's base address (Oct 2026). No API key needed for these URL forms.
+const MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS_LINE)}&output=embed`;
+const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS_LINE)}`;
 
 const CONTACTS: { icon: ReactNode; label: string; value: string; hint: string; href?: string; external?: boolean }[] = [
     { icon: <PhoneIcon />, label: 'Phone',    value: '07865 435 946',               hint: 'Mon–Sat 7am–7pm · Emergencies 24/7', href: 'tel:07865435946' },
     { icon: <ChatIcon />,  label: 'WhatsApp', value: 'Message us',                  hint: 'Send photos of the job for a faster quote', href: whatsappUrl("Hi Heat Spark, I'd like a quote. Here are some photos of the job:"), external: true },
     { icon: <MailIcon />,  label: 'Email',    value: 'admin@heatsparkenergy.co.uk', hint: 'We aim to reply within 2 hours', href: 'mailto:admin@heatsparkenergy.co.uk' },
     { icon: <ClockIcon />, label: 'Hours',    value: 'Mon–Sat, 7am–7pm',            hint: '24/7 for genuine emergencies' },
+    { icon: <PinIcon />,   label: 'Based in', value: ADDRESS_LINE,                hint: `Covering ${SERVICE_AREA}`, href: MAP_LINK, external: true },
 ];
 
 export default function Contact() {
@@ -135,10 +140,10 @@ export default function Contact() {
 
                     <section className="page_section section_alt">
                         <div className="wrapper_general">
-                            <SectionHead tag="Find Us" title={<>Where we <span className="highlight">work</span></>} desc="Covering domestic and commercial properties across the region — call to confirm we cover your area." />
+                            <SectionHead tag="Find Us" title={<>Where we <span className="highlight">work</span></>} desc={`Based in Swansea, covering ${SERVICE_AREA}.`} />
                             <div className="map_frame">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.5!2d-3.17909!3d51.48158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDI4JzUzLjciTiAzwrAxMCc0NC43Ilc!5e0!3m2!1sen!2suk!4v1620000000000!5m2!1sen!2suk"
+                                    src={MAP_EMBED}
                                     title="Heat Spark Energy Services location"
                                     loading="lazy"
                                     allowFullScreen

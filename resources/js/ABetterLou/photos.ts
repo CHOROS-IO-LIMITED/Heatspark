@@ -19,8 +19,6 @@ export const PHOTOS = {
     team:            { id: 5773087,  alt: 'Team of engineers in safety gear' },
     house:           { id: 39060777, alt: 'Red brick UK home with a bay window' },
     bathroom:        { id: 7018243,  alt: 'Newly fitted bathroom with glass shower enclosure' },
-    commercialRange: { id: 17303438, alt: 'Commercial gas range in a restaurant kitchen' },
-    cateringKitchen: { id: 34276646, alt: 'Stainless steel catering kitchen with gas cooking equipment' },
     plantRoom:       { id: 10290629, alt: 'Commercial plant room with pumps and pipework' },
     staticCaravans:  { id: 18026360, alt: 'Static caravans on a UK coastal holiday park' },
     narrowboat:      { id: 18115341, alt: 'Narrowboat moored on a canal' },

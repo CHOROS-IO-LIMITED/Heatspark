@@ -8,7 +8,7 @@ export const FAQ_GROUPS = [
         items: [
             {
                 q: 'What areas do you cover?',
-                a: 'Heat Spark Energy Services covers domestic and commercial properties across the region. Contact us to confirm availability in your specific area — we\'re always happy to discuss your job.',
+                a: 'We\'re based in Swansea and cover South and Mid Wales, as well as the Bristol Channel. Contact us to confirm availability in your area — we\'re always happy to discuss your job.',
             },
             {
                 q: 'Do you carry out emergency call-outs?',
@@ -19,8 +19,8 @@ export const FAQ_GROUPS = [
                 a: 'Absolutely. We work with homeowners, landlords, and businesses of all sizes. Whether it\'s a single repair or a multi-site commercial contract, we have the team and qualifications to handle it.',
             },
             {
-                q: 'Do you service commercial gas appliances and catering equipment?',
-                a: 'Yes. We carry out planned servicing and breakdown repairs on commercial gas appliances, catering equipment, boilers and plant rooms — for restaurants, pubs, schools, offices and landlords. Call 07865 435 946 if you have a breakdown.',
+                q: 'Do you service commercial gas boilers and appliances?',
+                a: 'Yes. We carry out planned servicing and breakdown repairs on commercial boilers, gas appliances and plant rooms — for offices, schools, pubs, shops and landlords. (We do not currently carry out commercial catering work.) Call 07865 435 946 if you have a breakdown.',
             },
             {
                 q: 'Can you service the LPG in my caravan or boat?',

@@ -126,7 +126,7 @@ export default function Nav({ onMenuOpen, onGetQuote }: NavProps) {
                                     </div>
                                 </div>
                                 <div className="overlay_membership" />
-                                <PlaceholderGraphic type="gas" className="image_back" photo={PHOTOS.commercialRange} sizes="(max-width: 480px) 100vw, 400px" />
+                                <PlaceholderGraphic type="gas" className="image_back" photo={PHOTOS.plantRoom} sizes="(max-width: 480px) 100vw, 400px" />
                             </a>
                             <a href="/services#lpg" className="membership_link" onClick={closeSubmenu}>
                                 <div className="above_info">

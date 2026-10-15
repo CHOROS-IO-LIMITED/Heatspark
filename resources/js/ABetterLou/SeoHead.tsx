@@ -4,7 +4,7 @@ import { Head, usePage } from '@inertiajs/react';
 type PageMeta = { path: string; title: string; description: string };
 
 const SITE = 'https://heatsparkenergy.co.uk';
-const OG_IMAGE = 'https://images.pexels.com/photos/17303438/pexels-photo-17303438.jpeg?auto=compress&cs=tinysrgb&w=1200';
+const OG_IMAGE = 'https://images.pexels.com/photos/34938442/pexels-photo-34938442.jpeg?auto=compress&cs=tinysrgb&w=1200';
 
 /**
  * Title, description, canonical and social tags from the controller's `meta` prop

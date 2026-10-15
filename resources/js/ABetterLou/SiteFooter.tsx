@@ -1,4 +1,4 @@
-import { ACCREDITATIONS, GAS_SAFE_NUMBER, whatsappUrl } from '@/ABetterLou/business';
+import { ACCREDITATIONS, ADDRESS, GAS_SAFE_NUMBER, whatsappUrl } from '@/ABetterLou/business';
 
 const NAV_COLS = [
     {
@@ -36,6 +36,8 @@ const NAV_COLS = [
             { label: '07865 435 946', href: 'tel:07865435946' },
             { label: 'admin@heatsparkenergy.co.uk', href: 'mailto:admin@heatsparkenergy.co.uk' },
             { label: 'heatsparkenergy.co.uk', href: 'https://heatsparkenergy.co.uk' },
+            { label: `${ADDRESS.town}, ${ADDRESS.postcode}` },
+            { label: 'South & Mid Wales · Bristol Channel' },
         ],
     },
 ];
@@ -101,7 +103,7 @@ export default function SiteFooter() {
                             © {new Date().getFullYear()} Heat Spark Energy Services Ltd. All rights reserved.
                         </div>
                         <div className="footer_legal base_p">
-                            {`Gas Safe Register no. ${GAS_SAFE_NUMBER}. OFTEC no. C504180. NAPIT registered. City & Guilds qualified engineers. Trade mark no. 4271344.`} Heat Spark Energy Services Ltd is registered in England and Wales.
+                            {`Gas Safe Register no. ${GAS_SAFE_NUMBER}. OFTEC no. C504180. NAPIT no. 84695. City & Guilds qualified engineers. Registered Trade Mark® no. 4271344.`} Heat Spark Energy Services Ltd is registered in England and Wales.
                         </div>
                     </div>
                 </div>

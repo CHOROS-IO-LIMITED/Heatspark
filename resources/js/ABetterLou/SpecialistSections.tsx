@@ -46,13 +46,14 @@ export function AccreditationBand() {
 
 /* ── Commercial gas ──────────────────────────────────────── */
 
-export const COMMERCIAL_SECTORS = ['Restaurants & takeaways', 'Pubs & hotels', 'Schools & offices', 'Landlords & letting agents', 'Shops & small businesses'];
+// No catering/kitchen work: the client isn't qualified for commercial catering yet (Oct 2026).
+export const COMMERCIAL_SECTORS = ['Offices & workplaces', 'Schools', 'Pubs & hotels', 'Landlords & letting agents', 'Shops & small businesses'];
 
 export const COMMERCIAL_SERVICES = [
     'Planned commercial gas servicing',
     'Breakdown call-outs & fault finding',
-    'Commercial catering equipment',
     'Commercial boilers & plant rooms',
+    'Commercial heating & hot water',
     'Commercial gas safety certificates',
     'Gas tightness testing & purging',
 ];
@@ -62,8 +63,8 @@ export function CommercialGasSection({ onGetQuote }: { onGetQuote: () => void })
         <section id="commercial-gas" className="specialist section_alt">
             <div className="wrapper_general specialist_grid">
                 <div className="specialist_media">
-                    <PlaceholderGraphic type="gas" className="media_card" photo={PHOTOS.commercialRange} sizes="(max-width: 900px) 50vw, 25vw" />
                     <PlaceholderGraphic type="gas" className="media_card" photo={PHOTOS.plantRoom} sizes="(max-width: 900px) 50vw, 25vw" />
+                    <PlaceholderGraphic type="gas" className="media_card" photo={PHOTOS.heatingPump} sizes="(max-width: 900px) 50vw, 25vw" />
                     <div className="specialist_badge">
                         <strong>Breakdown?</strong>
                         <span>Fast response to get your business running again.</span>
@@ -76,8 +77,8 @@ export function CommercialGasSection({ onGetQuote }: { onGetQuote: () => void })
                         Commercial gas <span className="highlight">servicing &amp; breakdowns</span>
                     </h2>
                     <p className="base_p specialist_lead">
-                        Keep your kitchen, heating and hot water running. Our Gas Safe registered engineers service and repair commercial gas
-                        appliances and plant — with planned maintenance to stop breakdowns before they cost you a day's trading.
+                        Keep your heating and hot water running. Our Gas Safe registered engineers service and repair commercial boilers,
+                        gas appliances and plant rooms — with planned maintenance to stop breakdowns before they cost you a day's trading.
                     </p>
 
                     <div className="sector_row">
